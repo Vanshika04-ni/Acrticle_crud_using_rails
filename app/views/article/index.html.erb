@@ -1,0 +1,23 @@
+<h3> Showing All Article </h3>
+<% if current_customer %>
+<%= image_tag("article.png") %>
+
+<% @articles.each do |i| %>
+  <div class="card" >
+  <div class="card-header">
+  By<%= i.user.username %>
+  </div>
+  <div class="card-body mt-5">
+    <h5 class="card-title">Title:<%= i.title %></h5>
+    <p class="card-text">Description:<%= i.description %></p>
+    <%= link_to 'Delete', article_path(i.id),method: :delete,class:"btn btn-outline-danger"%>
+    <%= link_to 'View', article_path(i.id),class:"btn btn-outline-success"%>
+    <%= link_to 'Update', edit_article_path(i.id),class:"btn btn-outline-primary"%>
+  </div>
+</div>
+ 
+<% end %>
+<%= will_paginate @articles %> 
+<% else %>
+  <p> No Article found!!!!!</p>
+<% end %>

@@ -1,0 +1,18 @@
+<h1> Article Creation Form </h1>
+
+<%= form_with scope: :article, url: article_index_path, local: true do |f| %>
+
+    <%= f.label :Title %>
+    <%= f.text_field :title %><br><br>
+
+    <%= f.label :Description %>
+    <%= f.text_area :description %><br><br>
+    
+    <%= f.label :User_Id %>
+    <%= f.text_field :user_id %><br><br>
+
+
+    <%= f.submit %>
+
+    
+<% end %>    
